@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        .autocomplete-suggestions {
+            border: 1px solid #ddd;
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+            background-color: white;
+            z-index: 1000;
+        }
+        .autocomplete-suggestion {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .autocomplete-suggestion:hover {
+            background-color: #f0f0f0;
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: inherit; /* Inherit font size from the table */
+        }
+        .pagination button, .pagination span {
+            font-size: inherit; /* Inherit font size from the pagination container */
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <table class="table is-striped is-hoverable hidden" id="results">
+        <thead>
+            <tr>
+                <th>Site</th>
+                <th>Sub-dept</th>
+                <th>Sub-dept name</th>
+                <th>Product Number</th>
+                <th>Colour</th>
+                <th>Size</th>
+                <th>Variant</th>
+            </tr>
+        </thead>
+        <tbody id="results-body">
+            <!-- Your data rows will be dynamically inserted here -->
+            <tr>
+                <td colspan="12">No results found</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination" id="pagination-container">
+        <button id="prev-button" onclick="prevPage()" disabled>Previous</button>
+        <span id="record-range">1-10</span>
+        <button id="next-button" onclick="nextPage()">Next</button>
+    </div>
+</body>
+</html>
